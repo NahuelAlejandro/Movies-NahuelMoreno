@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="./assets/Moviestack_favicon.png" type="image/x-icon">
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <title>Home</title>
+    </head>
+    <body>
+        <div class="min-h-screen w-full flex flex-col justify-center items-center">
+
+            <header class="relative w-full flex justify-center bg-[#6d38E0] border-y-2  border-slate-200">
+                <nav class=" flex justify-between items-center flex-row h-20 p-2  w-11/12">
+                    <div class="flex justify-between items-center">
+                        <img class="bg-purple-500 h-12 w-12 rounded-full border-2 " src="./assets/Moviestack_isotipo.png" alt="">
+                        <h1 class="ml-2 text-[#d2ccff]">Moviestack</h1>
+                    </div>
+                    <ul class="hidden md:flex flex-row gap-5 " >
+                        <li class="scale-110 font-extrabold text-white"><a class="p-2" href="#">Home</a></li>
+                        <li class="hover:scale-110 hover:text-white font-medium text-[#d2ccff]"><a class="p-2" href="./pages/movies.html">Movies</a></li>
+                        <li class="hover:scale-110 hover:text-white font-medium text-[#d2ccff]"><a class="p-2" href="#">Favs</a></li>
+                    </ul>
+                    <ul class="bg-[#d2ccff]/75 w-full h-screen flex flex-col justify-center items-center divide-y-2 divide-[#6d38E0]  fixed top-0 left-0 hidden z-[1]" id="dropMenu">
+                        <li class="w-20"><a class="w-full block flex justify-center py-2 px-4 font-extrabold" href="#">Home</a></li>
+                        <li class="w-20"><a class="w-full block flex justify-center py-2 px-4 font-medium" href="./pages/movies.html">Movies</a></li>
+                        <li class="w-20"><a class="w-full block flex justify-center py-2 px-4 font-medium" href="#">Favs</a></li>
+                    </ul>
+                    
+                    
+                    <svg class="h-6 w-6 text-white md:hidden z-[1]" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" id="menu">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    
+                    <svg class="hidden h-6 w-6 text-[#6d38E0] fixed right-[26px] md:hidden z-[2]" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" id="close">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </nav>    
+                
+            
+            </header>
+            <main class="bg-[#d2ccff] w-full grow">
+                <div class="w-full">
+                    <div class=" w-full h-full lg:h-[700px] flex overflow-hidden justify-center items-center">
+                        <img class="w-full object-cover " src="https://moviestack.onrender.com/static/p369xj1lon.jpg" alt="">
+                    </div>
+                </div>
+                <div class="w-full flex flex-col items-center pt-4 space-y-3">
+                    <p class="w-3/4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem facilis pariatur distinctio odit aut ea amet. Molestias et eaque expedita sunt ipsa dignissimos magni, repudiandae ducimus voluptate adipisci quam numquam?
+                    Commodi at pariatur maiores praesentium consectetur optio sapiente iste, perspiciatis eos sunt ullam enim dolores ad nam minima quos tempore ut reprehenderit voluptatem libero aspernatur veniam quae? Velit, exercitationem id?</p>
+                    <p class="w-3/4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, accusamus repellendus eius expedita consequuntur possimus voluptatibus sed esse totam modi accusantium adipisci ex quas nobis perspiciatis! Asperiores temporibus commodi quo.
+                    Aperiam, doloremque? Blanditiis quam eius quis quia, eos ex voluptates nostrum repellendus magni in provident harum dicta! Voluptate doloremque modi magnam obcaecati, aliquam velit enim sequi! Ut quas repellat nulla!</p>
+                    <p class="w-3/4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente repudiandae et maiores quidem exercitationem modi aut corrupti harum fugit voluptates at iusto placeat tenetur quasi eum maxime, itaque vero tempore!
+                    Numquam harum soluta reprehenderit quisquam, culpa vero voluptates nemo laborum quasi ipsa. Nihil eaque similique, hic voluptates ipsa sed deserunt, blanditiis adipisci nemo tempore corporis nostrum molestias ratione eligendi qui.</p>
+                    
+                </div>
+                <div class="w-full flex flex-col items-center py-4 space-y-3 lg:flex-row lg:space-y-0 lg:justify-around">
+                     <div class="w-3/4 rounded-xl relative bg-[url('https://moviestack.onrender.com/static/2he6f40h5q.jpg')] bg-no-repeat bg-cover h-60  lg:w-2/5 lg:h-96 ">
+                        <div class="w-full rounded-xl h-full bg-black opacity-65"></div>
+                        <p class="text-[#d2ccff] lg:text-5xl text-xl font-bold top-[20px] left-[20px] absolute">watch the best movies</p>
+                        <a class="rounded-full border-2 shadow-lg shadow-[#d2ccff]/50 border-[#d2ccff] bg-[#6d38E0] ease-in-out animate-bounce hover:animate-none hover:scale-110 hover:border-[#6d38E0] hover:bg-[#d2ccff] text-[#d2ccff] bottom-[20%] left-[25%] lg:bottom-20 lg:left-[42%] hover:text-[#6d38E0] lg:text-xl p-2 font-bold uppercase absolute" href="./pages/movies.html">go to movies</a>
+                    </div>
+                    <div class="w-3/4 rounded-xl relative bg-[url('https://moviestack.onrender.com/static/0r81x6xczm.jpg')] bg-no-repeat bg-cover h-60  lg:w-2/5 lg:h-96 ">
+                        <div class="w-full rounded-xl h-full bg-black opacity-65"></div>
+                        <p class="text-[#d2ccff] lg:text-5xl text-xl font-bold top-[20px] left-[20px] absolute">watch your favs movies</p>
+                        <a class="rounded-full border-2 shadow-lg shadow-[#d2ccff]/50 border-[#d2ccff] ease-in-out bg-[#6d38E0] animate-bounce hover:animate-none hover:scale-110 hover:border-[#6d38E0] hover:bg-[#d2ccff] text-[#d2ccff] bottom-[20%] left-[25%] lg:bottom-20 lg:left-[42%] hover:text-[#6d38E0] lg:text-xl p-2 font-bold uppercase absolute" href="#">go to favs</a>
+                    </div>
+                </div>
+               
+            </main>
+            <footer class="w-full h-20 bg-[#6d38E0] flex justify-center">
+                <div class="flex justify-center items-center">
+                    <p class="text-white">MindHub - Cohort N</p>
+                </div>
+            </footer>
+        </div>
+        <script src="./scripts/tailwind.config.js"></script>
+        <script src="./scripts/index.js"></script>
+    </body>
+</html>
