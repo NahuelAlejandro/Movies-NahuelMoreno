@@ -24,8 +24,10 @@ function createCards(movie) {
     
 
     let content =document.createElement("article");
-    content.className = `bg-[#6d38E0] shadow-lg shadow-[#6d38E0]/50 hover:shadow-xl hover:shadow-[#6d38E0]/50 cursor-pointer rounded-lg lg:rounded-t-lg overflow-hidden flex flex-col gap-2 items-center  h-80 w-[90%] md:w-[45%] lg:w-[28%] lg:h-[500px] `
+    content.className = `bg-[#6d38E0] shadow-lg shadow-[#6d38E0]/50 hover:shadow-xl hover:shadow-[#6d38E0]/50 cursor-pointer rounded-lg lg:rounded-t-lg overflow-hidden flex flex-col gap-2 items-center relative h-80 w-[90%] md:w-[45%] lg:w-[28%] lg:h-[500px] `
+    content.setAttribute("id",`${movie.id}`)
     content.innerHTML = `
+    <span class="opacity-0 w-full absolute h-full"></span>
         <img class="object-cover h-[80%] lg:h-[55%] lg:w-full h-full " src="${movie.image}" alt="">
         <div class="w-[90%] lg:flex lg:flex-col lg:justify-around lg:gap-2  lg:static lg:h-[40%]">
             <h3 class="font-medium text-center lg:text-lg  text-white lg:py-2 ">${movie.title}</h3>
@@ -37,7 +39,12 @@ function createCards(movie) {
 
 function printCards (moviesList, element){
     let fragment = document.createDocumentFragment();
-
+    if (moviesList == 0){
+        let h2 = document.createElement("h2")
+        h2.classList= `text-[#6d38E0] font-bold text-5xl py-6`
+        h2.innerHTML = `not found movies`
+        fragment.append( h2) ;
+    }
     for (const movie of moviesList) {
         fragment.append( createCards(movie)) ;
          
@@ -148,3 +155,19 @@ function filteredMoviesTitle(moviesList, title) {
         
      }
     
+// SEND DETAIL PAGE 
+
+
+movieContainer.addEventListener("click", (e)=>{
+    
+   
+    if(e.target.parentElement.localName === "article" ){
+    window.location.href = `detail.html?id=${e.target.parentElement.id}`
+ }
+   
+
+  
+})
+
+
+
