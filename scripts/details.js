@@ -33,7 +33,7 @@ function createArticle(movie,element) {
     article.classList = `w-[90%]  flex flex-col lg:flex-row lg:justify-around gap-5`
     article.innerHTML = `
     <img class="rounded xl:w-[550px]" src="${movie.image}" alt="${movie.title}">
-    <div class="flex xl:w-[57%] flex-col gap-3">
+    <div class="flex xl:w-[57%] flex-col justify-around gap-3">
         <h2 class="text-5xl text-[#6d38E0] font-bold">${movie.title}</h2>
         <h3 class="text-2xl text-[#6d38E0] font-semibold">${movie.tagline}</h3>
         <div class="flex flex-wrap gap-3" id="genresContainer"></div>
@@ -63,6 +63,8 @@ createSpan(movie.genres, gen)
 
 
 function createTable(movie, element) {
+    
+
 let fragment = document.createDocumentFragment();
     let div = document.createElement("div")
     div.classList = `w-full  flex justify-center`
@@ -94,15 +96,16 @@ let fragment = document.createDocumentFragment();
             </tr>
             <tr >
                 <td class="border-2 w-36 h-10 md:w-52 xl:w-96 xl:h-14 border-[#6d38E0] font-semibold indent-1">Budget</td>
-                <td class="border-2 w-36 h-10 md:w-52 xl:w-96 xl:h-14 border-[#6d38E0] font-semibold indent-1">${movie.budget}</td>
+                <td class="border-2 w-36 h-10 md:w-52 xl:w-96 xl:h-14 border-[#6d38E0] font-semibold indent-1">$ ${movie.budget.toLocaleString()}</td>
             </tr>
             <tr >
                 <td class="border-2 w-36 h-10 md:w-52 xl:w-96 xl:h-14 border-[#6d38E0] font-semibold indent-1">Revenue</td>
-                <td class="border-2 w-36 h-10 md:w-52 xl:w-96 xl:h-14 border-[#6d38E0] font-semibold indent-1">${movie.revenue}</td>
+                <td class="border-2 w-36 h-10 md:w-52 xl:w-96 xl:h-14 border-[#6d38E0] font-semibold indent-1">$ ${movie.revenue.toLocaleString()}</td>
             </tr>
         </tbody>
     </table>
     `
+    
     fragment.append(div)
 
     element.append(fragment)
