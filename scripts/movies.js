@@ -21,21 +21,31 @@ close.addEventListener("click", dropMenu)
 const movieContainer = document.getElementById("movieContainer");
 
 function createCards(movie) {
-    
 
+    
     let content =document.createElement("article");
-    content.className = `bg-[#6d38E0] shadow-lg shadow-[#6d38E0]/50 hover:shadow-xl hover:shadow-[#6d38E0]/50 cursor-pointer rounded-lg lg:rounded-t-lg overflow-hidden flex flex-col gap-2 items-center relative h-80 w-[90%] md:w-[45%] lg:w-[28%] lg:h-[500px] `
+    content.className = ` shadow-lg shadow-[#6d38E0]/50 hover:shadow-xl hover:shadow-[#6d38E0]/50 cursor-pointer rounded-lg lg:rounded-t-lg overflow-hidden flex flex-col gap-2 items-center relative h-80 w-[90%] md:w-[45%] lg:w-[28%] lg:h-[500px] group lg:[perspective:500px] `
     content.setAttribute("id",`${movie.id}`)
-    content.innerHTML = `
-    <span class="opacity-0 w-full absolute h-full"></span>
-        <img class="object-cover h-[80%] lg:h-[55%] lg:w-full h-full " src="${movie.image}" alt="">
-        <div class="w-[90%] lg:flex lg:flex-col lg:justify-around lg:gap-2  lg:static lg:h-[40%]">
-            <h3 class="font-medium text-center lg:text-lg  text-white lg:py-2 ">${movie.title}</h3>
-            <span class=" hidden lg:block lg:text-[#d2ccff] ">${movie.tagline}</span>
-            <p class="hidden lg:block lg:text-[#d2ccff] lg:text-sm lg:py-2 lg:truncate">${movie.overview}</p>
+    content.innerHTML = `<span class="opacity-0 w-full absolute h-full z-[1]"></span>
+        <div class="relative h-full w-full lg:transition-all lg:duration-500 lg:[transform-style:preserve-3d] lg:group-hover:[transform:rotateY(180deg)] ">
+            <section class="lg:absolute bg-[#6d38E0] inset-0  w-full h-full ">
+                <img class="object-cover w-full h-[88%]" src="${movie.image}" alt="${movie.title}">
+                <h3 class="font-medium py-1 text-center text-lg  text-white  ">${movie.title}</h3>
+            </section>
+             <section class="lg:absolute lg:inset-0 lg:h-full  lg:bg-[#6d38E0]  w-full px-6 lg:flex lg:flex-col lg:justify-around lg:gap-2 lg:[transform:rotateY(180deg)] lg:[backface-visibility:hidden]">
+                 <h3 class="lg:font-medium lg:text-center lg:text-3xl  lg:text-white lg:py-2 ">${movie.title}</h3>
+                 <span class=" lg:text-white text-lg font-semibold">Tagline: <span class=" lg:text-[#d2ccff] ">${movie.tagline}</span></span>
+                 <span class=" lg:text-white text-lg font-semibold "> Description:
+                 <p class="lg:text-[#d2ccff] lg:text-base lg:py-2 ">${movie.overview} </p>
+                 </span>
+                 <span class="lg:text-[#d2ccff] lg:text-sm lg:text-center">Click Read More</span>
+             </section>
         </div>`
+
     return content;
-}
+     }
+
+
 
 function printCards (moviesList, element){
     let fragment = document.createDocumentFragment();
@@ -148,7 +158,7 @@ function filteredMoviesTitle(moviesList, title) {
     
     function filteredMoviesGenre(moviesList, genre) {
         
-        if(genre == ""){
+        if(genre == "allGenres"){
             return moviesList
         }
         return moviesList.filter((movie) => movie.genres.includes(genre) );
