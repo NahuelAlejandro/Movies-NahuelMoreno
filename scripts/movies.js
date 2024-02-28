@@ -1,4 +1,4 @@
-import {printCards, filteredMoviesTitle, getGenres, printOptions, filteredMoviesGenre}from "./module/functions.js"
+import {printCards, filteredMoviesTitle, getGenres, printOptions, filteredMoviesGenre,dropMenu}from "./module/functions.js"
 
 
 // MENU MOBILE
@@ -6,17 +6,17 @@ const openMenu = document.getElementById("menu");
 const drop = document.getElementById("dropMenu");
 const close = document.getElementById("close");
 
-function dropMenu(){
-    drop.classList.toggle("hidden"); 
-    openMenu.classList.toggle("hidden");
-    close.classList.toggle("hidden");
-}
 
-openMenu.addEventListener("click",dropMenu );
+
+openMenu.addEventListener("click", ()=>{
+    dropMenu(openMenu, drop, close)
+} );
 
 
 
-close.addEventListener("click", dropMenu)
+close.addEventListener("click",  ()=>{
+    dropMenu(openMenu, drop, close)
+})
 
 
 

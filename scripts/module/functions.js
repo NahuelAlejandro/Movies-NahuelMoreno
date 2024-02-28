@@ -1,3 +1,11 @@
+// Mobile Menu
+
+export function dropMenu(param1, param2, param3){
+    param2.classList.toggle("hidden"); 
+    param1.classList.toggle("hidden");
+    param3.classList.toggle("hidden");
+}
+
 // MAIN CONTENT
 
 function createCards(movie) {

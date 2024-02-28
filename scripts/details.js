@@ -1,20 +1,22 @@
-import{createArticle, createSpan, createTable}from "./module/functions.js"
+import{createArticle, createSpan, createTable, dropMenu}from "./module/functions.js"
 
 const openMenu = document.getElementById("menu");
 const drop = document.getElementById("dropMenu");
 const close = document.getElementById("close");
 
-function dropMenu(){
-    drop.classList.toggle("hidden"); 
-    openMenu.classList.toggle("hidden");
-    close.classList.toggle("hidden");
-}
-
-openMenu.addEventListener("click",dropMenu );
 
 
+ 
 
-close.addEventListener("click", dropMenu)
+openMenu.addEventListener("click",()=>{
+    dropMenu(openMenu, drop, close)
+});
+
+
+
+close.addEventListener("click", ()=>{
+    dropMenu(openMenu, drop, close)
+});
 
 // Details Movie
 const urlSearchParams = new URLSearchParams(location.search) 
