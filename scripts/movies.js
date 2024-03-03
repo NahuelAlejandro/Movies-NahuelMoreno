@@ -23,7 +23,6 @@ fetch(url, init)
             
         }
 
-
         // MENU MOBILE
         openMenu.addEventListener("click", () => {
             dropMenu(openMenu, drop, close)
@@ -33,9 +32,9 @@ fetch(url, init)
             dropMenu(openMenu, drop, close)
         })
 
-        // MAIN CONTENT
-        printCards(movies, movieContainer)
-
+      
+         // MAIN CONTENT
+         printCards(movies, movieContainer)
 
 
         // FILTER SEARCH
@@ -81,20 +80,17 @@ fetch(url, init)
         // SEND DETAIL PAGE 
 
         movieContainer.addEventListener("click", (e) => {
-
+            console.log(e.target)
             if (e.target.localName === "span") {
                 window.location.href = `detail.html?id=${e.target.parentElement.id}`
-            } else if (e.target.id === "favsIcon" ) {
+            } else if (e.target.localName === "img" ) {
                 
-                const button = e.target
+                const button = e.target.parentElement
                 
                 button.classList.toggle("bg-yellow-300")
                  
-                
-                
-                
 
-                const favmovie = movies.find(movie => movie.id === e.target.parentElement.id)
+                const favmovie = movies.find(movie => movie.id === e.target.parentElement.parentElement.id)
 
 
                 if (favmovie.favs) {
@@ -140,11 +136,6 @@ const inputSearch = document.getElementById("inputSearch");
 
 // SELECT CONTENT   
 const selectContainer = document.getElementById("select")
-
-
-
-
-
 
 
 

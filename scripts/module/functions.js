@@ -22,15 +22,6 @@ function createCards(movie) {
     content.className = ` shadow-lg shadow-[#6d38E0]/50 hover:shadow-xl hover:shadow-[#6d38E0]/50 cursor-pointer rounded-lg lg:rounded-t-lg overflow-hidden flex flex-col gap-2 items-center relative h-80 w-[90%] md:w-[45%] lg:w-[28%] lg:h-[500px] group lg:[perspective:500px] `
     content.setAttribute("id",`${movie.id}`)
     content.innerHTML = `
-
-       
-      
-        <div class="w-6 h-6 absolute z-[2] border-2 border-black ${color} pl-[2px] rounded-full right-2 top-2 "  id="favsIcon">
-      </div>
-          
-        
-       
-        <span class="opacity-0 w-full absolute h-full z-[1]"></span>
         <article class="relative h-full w-full lg:transition-all lg:duration-500 lg:[transform-style:preserve-3d] lg:group-hover:[transform:rotateY(180deg)] ">
             <section class="lg:absolute bg-[#6d38E0] inset-0  w-full h-full ">
                 <img class="object-cover w-full h-[88%]" src="https://moviestack.onrender.com/static/${movie.image}" alt="${movie.title}">
@@ -45,8 +36,10 @@ function createCards(movie) {
                  <span class="lg:text-[#d2ccff] lg:text-sm lg:text-center ">Click Read More</span>
              </section>
         </article>
-     
-        
+        <span class="w-6 h-6 absolute z-[2] border-2 border-black ${color} rounded-full right-2 top-2 ">
+        <img class="w-6 h-full p-1" src="../../assets/estrella.png" alt="star_icon">
+      </span>
+       <span class="opacity-0 w-full absolute h-full z-[1]"></span>
         
         `
 

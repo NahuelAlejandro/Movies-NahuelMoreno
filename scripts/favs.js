@@ -46,15 +46,15 @@ fetch(url, init)
 
             if (e.target.localName === "span") {
                 window.location.href = `detail.html?id=${e.target.parentElement.id}`
-            } else if (e.target.id === "favsIcon") {
+            } else if (e.target.localName === "img" ) {
                 
                 const button = e.target
 
-                button.classList.toggle("bg-yellow-300")
+                
 
-                button.parentElement.remove()
+                button.parentElement.parentElement.remove()
 
-                const favmovie = movies.find(movie => movie.id === e.target.parentElement.id)
+                const favmovie = movies.find(movie => movie.id === e.target.parentElement.parentElement.id)
 
                 if (favmovie.favs) {
                     Object.assign(favmovie, obj2)
