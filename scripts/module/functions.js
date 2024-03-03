@@ -9,26 +9,46 @@ export function dropMenu(param1, param2, param3){
 // MAIN CONTENT
 
 function createCards(movie) {
+    
+    let color = "" 
 
+    if(movie.favs == true){
+        color = "bg-yellow-300"
+    }else {
+        color = "bg-gray-500"
+    }
     
     let content =document.createElement("article");
     content.className = ` shadow-lg shadow-[#6d38E0]/50 hover:shadow-xl hover:shadow-[#6d38E0]/50 cursor-pointer rounded-lg lg:rounded-t-lg overflow-hidden flex flex-col gap-2 items-center relative h-80 w-[90%] md:w-[45%] lg:w-[28%] lg:h-[500px] group lg:[perspective:500px] `
     content.setAttribute("id",`${movie.id}`)
-    content.innerHTML = `<span class="opacity-0 w-full absolute h-full z-[1]"></span>
-        <div class="relative h-full w-full lg:transition-all lg:duration-500 lg:[transform-style:preserve-3d] lg:group-hover:[transform:rotateY(180deg)] ">
+    content.innerHTML = `
+
+       
+      
+        <div class="w-6 h-6 absolute z-[2] border-2 border-black ${color} pl-[2px] rounded-full right-2 top-2 "  id="favsIcon">
+      </div>
+          
+        
+       
+        <span class="opacity-0 w-full absolute h-full z-[1]"></span>
+        <article class="relative h-full w-full lg:transition-all lg:duration-500 lg:[transform-style:preserve-3d] lg:group-hover:[transform:rotateY(180deg)] ">
             <section class="lg:absolute bg-[#6d38E0] inset-0  w-full h-full ">
-                <img class="object-cover w-full h-[88%]" src="${movie.image}" alt="${movie.title}">
+                <img class="object-cover w-full h-[88%]" src="https://moviestack.onrender.com/static/${movie.image}" alt="${movie.title}">
                 <h3 class="font-medium py-1 text-center text-lg  text-white  ">${movie.title}</h3>
             </section>
              <section class="lg:absolute lg:inset-0 lg:h-full  lg:bg-[#6d38E0]  w-full px-6 lg:flex lg:flex-col lg:justify-around lg:gap-2 lg:[transform:rotateY(180deg)] lg:[backface-visibility:hidden]">
                  <h3 class="lg:font-medium lg:text-center lg:text-3xl  lg:text-white lg:py-2 ">${movie.title}</h3>
                  <span class=" lg:text-white text-lg font-semibold">Tagline: <span class=" lg:text-[#d2ccff] ">${movie.tagline}</span></span>
                  <span class=" lg:text-white text-lg font-semibold "> Description:
-                 <p class="lg:text-[#d2ccff] lg:text-base lg:py-2 ">${movie.overview} </p>
+                 <p class="lg:text-[#d2ccff] lg:text-base line-clamp-6 lg:py-2 ">${movie.overview} </p>
                  </span>
                  <span class="lg:text-[#d2ccff] lg:text-sm lg:text-center ">Click Read More</span>
              </section>
-        </div>`
+        </article>
+     
+        
+        
+        `
 
     return content;
      }
@@ -37,7 +57,7 @@ function createCards(movie) {
 
 export function printCards (moviesList, element){
     let fragment = document.createDocumentFragment();
-    if (moviesList == 0){
+    if (moviesList == ""){
         let h2 = document.createElement("h2")
         h2.classList= `text-[#6d38E0] font-bold text-5xl py-6`
         h2.innerHTML = `not found movies`
@@ -49,6 +69,7 @@ export function printCards (moviesList, element){
         }
          element.append(fragment);
 }
+
 
 
 
@@ -112,7 +133,11 @@ export function printOptions(genresList, element) {
     
  }
 
-//  Deatils
+ export function setFavs(article){
+    article.setAttribute.add("data-fav","favs")
+ }
+
+//  DETAILS
 
 
 
@@ -122,13 +147,13 @@ export function createArticle(movie,element) {
     let article = document.createElement("article");
     article.classList = `w-[90%]  flex flex-col lg:flex-row lg:justify-around gap-5`
     article.innerHTML = `
-    <img class="rounded xl:w-[550px]" src="${movie.image}" alt="${movie.title}">
-    <div class="flex xl:w-[57%] flex-col justify-around gap-3">
+    <img class="rounded xl:w-[550px]" src="https://moviestack.onrender.com/static/${movie.image}" alt="${movie.title}">
+    <section class="flex xl:w-[57%] flex-col justify-around gap-3">
         <h2 class="text-5xl text-[#6d38E0] font-bold">${movie.title}</h2>
         <h3 class="text-2xl text-[#6d38E0] font-semibold">${movie.tagline}</h3>
         <div class="flex flex-wrap gap-3" id="genresContainer"></div>
         <p >${movie.overview}</p>
-    </div>
+    </section>
     `
     fragment.append(article)
     
@@ -142,7 +167,8 @@ export function createSpan(genres, element){
         span.classList = `px-2 bg-[#6d38E0] text-[#d2ccff] rounded uppercase font-semibold`
         span.innerHTML = `<span class="">${genre}</span>`
         fragment.append(span)
-    } element.append(fragment)
+    } 
+    element.append(fragment)
 }
 
 export function createTable(movie, element) {
@@ -192,4 +218,11 @@ export function createTable(movie, element) {
         fragment.append(div)
     
         element.append(fragment)
+    }
+    // // FAVS MAIN CONTENT
+
+   export function printFavsCards(movies){
+        let favmovie = movies.filter(movie=> movie.favs == true)
+
+        return favmovie
     }
